@@ -24,13 +24,13 @@ services:
             - 9090:9090
         networks:
             - meetup-net
-#        deploy:
-#            replicas: 1
-#            update_config:
-#                parallelism: 2
-#                delay: 10s
-#            restart_policy:
-#                condition: on-failure
+        deploy:
+            replicas: 1
+            update_config:
+                parallelism: 1
+                delay: 10s
+            restart_policy:
+                condition: on-failure
 
     grafana:
         image: grafana/grafana
@@ -43,13 +43,13 @@ services:
             - env.grafana
         networks:
             - meetup-net
-#        deploy:
-#            replicas: 1
-#            update_config:
-#                parallelism: 2
-#                delay: 10s
-#            restart_policy:
-#                condition: on-failure
+        deploy:
+            replicas: 1
+            update_config:
+                parallelism: 1
+                delay: 10s
+            restart_policy:
+                condition: on-failure
 
     exporter:
         image: prom/node-exporter
@@ -64,13 +64,13 @@ services:
             - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
         networks:
             - meetup-net
-#        deploy:
-#            replicas: 1
-#            update_config:
-#                parallelism: 2
-#                delay: 10s
-#            restart_policy:
-#                condition: on-failure
+        deploy:
+            replicas: 1
+            update_config:
+                parallelism: 1
+                delay: 10s
+            restart_policy:
+                condition: on-failure
 
 #    ping:
 #        container_name: ping
@@ -81,7 +81,7 @@ services:
 #        deploy:
 #            replicas: 10
 #            update_config:
-#                parallelism: 2
+#                parallelism: 1
 #                delay: 10s
 #            restart_policy:
 #                condition: on-failure
